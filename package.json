@@ -1,0 +1,12 @@
+{
+  "name": "@gideon/lost-lead-recovery-engine",
+  "version": "1.0.0",
+  "description": "Lost Lead Recovery Engine: Scans dormant CRM databases to identify abandoned quotes, single-touch prospects, and silent leads, and generates automated re-activation campaigns.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "node src/index.js"
+  },
+  "author": "Gideon Autonomous Workforce",
+  "license": "MIT"
+}

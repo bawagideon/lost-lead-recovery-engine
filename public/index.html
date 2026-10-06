@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost Lead Recovery Engine — CRM Graveyard Scanner</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(18, 24, 38, 0.8);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text-main); font-family: var(--font-sans); padding: 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    @media (max-width: 800px) { .kpi-row { grid-template-columns: 1fr 1fr; } }
+    .kpi { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 1.25rem; }
+    .kpi-val { font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); margin-top: 0.25rem; }
+    table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 10px; overflow: hidden; border: 1px solid var(--card-border); font-size: 0.85rem; }
+    th, td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--card-border); text-align: left; }
+    th { background: rgba(0,0,0,0.3); color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem; }
+    .btn-revive { background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: bold; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>💀 Lost Lead Recovery Engine</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Automated CRM Graveyard Scanner & Pipeline Reactivation</p>
+      </div>
+      <div>
+        <button style="background: linear-gradient(135deg, #06b6d4, #0284c7); color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: bold; cursor: pointer;" onclick="reviveAll()">⚡ 1-Click Revive All Cohorts</button>
+      </div>
+    </header>
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div style="font-size: 0.8rem; color: var(--text-muted);">Dormant Leads Found</div>
+        <div class="kpi-val" style="color: var(--accent-rose);">142</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">&gt;14 days untouched</div>
+      </div>
+      <div class="kpi">
+        <div style="font-size: 0.8rem; color: var(--text-muted);">Untapped Pipeline</div>
+        <div class="kpi-val" style="color: var(--accent-amber);">$284,000</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Sleeping in CRM rows</div>
+      </div>
+      <div class="kpi">
+        <div style="font-size: 0.8rem; color: var(--text-muted);">Projected Recovery (12%)</div>
+        <div class="kpi-val" style="color: var(--accent-emerald);">$34,080</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Zero ad spend needed</div>
+      </div>
+      <div class="kpi">
+        <div style="font-size: 0.8rem; color: var(--text-muted);">Ghosted Quotes</div>
+        <div class="kpi-val" style="color: var(--accent-cyan);">38</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted);">Proposals with 0 follow-up</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Prospect / Company</th>
+          <th>Deal Value</th>
+          <th>Days Dormant</th>
+          <th>Leak Classification</th>
+          <th>Tailored Revival Hook</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td><strong>Apex BioHealth LLC</strong><br><span style="color: var(--text-muted); font-size: 0.75rem;">Proposal: $14,000</span></td>
+          <td style="font-family: var(--font-mono); font-weight: bold;">$14,000</td>
+          <td>22 days</td>
+          <td><span style="color: #f43f5e; font-weight: bold;">GHOSTED_QUOTE</span></td>
+          <td style="color: #94a3b8; font-size: 0.8rem;">"Hi Dr. Miller, following up on our proposal. Did timeline shift for Q4?"</td>
+          <td><button class="btn-revive" onclick="reviveSingle(this)">Revive</button></td>
+        </tr>
+        <tr>
+          <td><strong>Vanguard Legal Group</strong><br><span style="color: var(--text-muted); font-size: 0.75rem;">Contacted once 35 days ago</span></td>
+          <td style="font-family: var(--font-mono); font-weight: bold;">$6,500</td>
+          <td>35 days</td>
+          <td><span style="color: #f59e0b; font-weight: bold;">SINGLE_TOUCH_ABANDONED</span></td>
+          <td style="color: #94a3b8; font-size: 0.8rem;">"Hi Marcus, checking back regarding your software automation request..."</td>
+          <td><button class="btn-revive" onclick="reviveSingle(this)">Revive</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function reviveSingle(btn) {
+      btn.textContent = '✅ Dispatched';
+      btn.style.background = '#334155';
+      btn.disabled = true;
+    }
+    function reviveAll() {
+      document.querySelectorAll('.btn-revive').forEach(b => {
+        b.textContent = '✅ Dispatched';
+        b.style.background = '#334155';
+        b.disabled = true;
+      });
+      alert('Dispatched personalized re-engagement batches to all 142 dormant leads!');
+    }
+  </script>
+</body>
+</html>
