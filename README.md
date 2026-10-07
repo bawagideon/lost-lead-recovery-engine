@@ -7,6 +7,17 @@
 
 ---
 
+## 🚀 Live Interactive Simulator & Proof
+
+[![Lost Lead Recovery Engine Live Interactive Simulator](assets/screenshot.png)](https://gideonbawa-website.netlify.app/simulators/lost-lead-recovery-engine/)
+
+* 🌐 **Live In-Browser Simulator:** [https://gideonbawa-website.netlify.app/simulators/lost-lead-recovery-engine/](https://gideonbawa-website.netlify.app/simulators/lost-lead-recovery-engine/)
+* 💼 **Portfolio Showcase:** [https://gideonbawa-website.netlify.app/#work](https://gideonbawa-website.netlify.app/#work)
+* 🛡️ **Verified QA Evidence:** HMAC-SHA256 Signed Contract (`ev-qa-contract-1791285928367-lost-lead-recovery-engine`)
+
+---
+
+
 ## 💸 Commercial Problem & Economic Pain
 Companies spend thousands buying new leads while **hundreds of warm prospects sit untouched in their CRM database**.
 Classifying and reviving them produces an immediate **10% to 18% pipeline unlock**.
